@@ -2,11 +2,12 @@ import Logo from './logo/Logo'
 import { SearchForm } from './search/SearchForm'
 import { Helmet } from 'react-helmet';
 import { Movies } from './movie/Movies'
+import { MoviesSkeleton } from './movie/MoviesSkeleton'
 import { useSearch } from './search/useSearch'
 import './App.css'
 
 function App() {
-  const { loading, movies, handleFormSubmit } = useSearch()
+  const { loading, movies, handleFormSubmit, lastQuery } = useSearch()
   return (
     <>
       <Helmet>
@@ -20,7 +21,7 @@ function App() {
       </header>
       <main>
         {
-          loading ? <p>cargando...</p> : <Movies movies={movies} />
+          loading ? <MoviesSkeleton /> : <Movies movies={movies} lastQuery={lastQuery} />
         }
       </main>
     </>

@@ -41,5 +41,5 @@ export function useSearch() {
         debouncedSearchMovies(query)
     }
 
-    return {movies, handleFormSubmit, loading, error, handleInputChange}
+    return {movies, handleFormSubmit, loading, error, handleInputChange,lastQuery}
 }

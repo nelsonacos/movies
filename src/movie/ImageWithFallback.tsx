@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import fallback from '../../public/images/not-found.png'
+import fallback from '../assets/image-not-found.jpg'
 
 interface Props {
     className?: string,
@@ -18,11 +18,11 @@ export function ImageWithFallback({ src, ...rest }: Props) {
     }, [src])
 
     return (
-        <image
+        <img
             {...rest}
-            src={imgSrc ? imgSrc : fallback.src}
+            src={imgSrc ? imgSrc : fallback}
             onError={() => {
-                setImgSrc(fallback.src)
+                setImgSrc(fallback)
             }}
         />
     )
